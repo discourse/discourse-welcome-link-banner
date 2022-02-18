@@ -1,0 +1,131 @@
+.below-site-header-outlet.welcome-link-banner-connector {
+  .welcome-link-banner-wrapper {
+    background-color: #{$banner-background-color};
+    background-image: url(#{$banner-background-image});
+    background-size: #{$banner-background-size};
+    background-repeat: #{$banner-background-repeat};
+    background-position: center center;
+  }
+
+  .welcome-link-banner {
+    display: flex;
+  }
+
+  .welcome-wrapper {
+    flex: 0 1 auto;
+    margin-top: 2em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    box-shadow: shadow("card");
+    margin: 2.5em auto;
+    background: var(--secondary);
+
+    .featured-banner-link {
+      background: var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+
+      svg {
+        transition: color 0.25s;
+      }
+
+      > div {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+
+        svg {
+          display: block;
+          font-size: 1.75em;
+          margin: 0 auto 0.25em auto;
+        }
+
+        a {
+          transition: all 0.25s;
+          width: 100%;
+          padding: 1.5em;
+          color: var(--primary);
+          display: flex;
+          justify-content: center;
+
+          .d-icon {
+            color: var(--primary-high);
+            margin-bottom: 0.35em;
+          }
+
+          &:hover {
+            color: var(--tertiary);
+            text-decoration: underline;
+            .d-icon {
+              color: var(--tertiary);
+            }
+          }
+        }
+
+        h3 {
+          font-weight: normal;
+          white-space: nowrap;
+          line-height: 1.2;
+          margin: 0;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.75em;
+      line-height: 1.2;
+    }
+
+    .welcome-content {
+      background: var(--secondary);
+      max-width: 375px;
+      text-align: left;
+      padding: 2.5em 2em 3em;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (max-width: 930px) {
+      flex-wrap: wrap;
+
+      p {
+        max-width: 500px;
+      }
+
+      .welcome-content {
+        max-width: unset;
+        text-align: center;
+        padding-bottom: 1em;
+      }
+
+      .featured-banner-link {
+        padding: 0 0 2em;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      padding: 2em;
+    }
+
+    @media screen and (max-width: 550px) {
+      max-width: 80vw;
+      padding: 0;
+
+      .featured-banner-link {
+        flex-direction: column;
+        padding: 0.5em 0.5em 1.25em;
+
+        > div {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

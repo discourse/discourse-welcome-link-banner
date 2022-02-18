@@ -1,0 +1,53 @@
+show_on:
+  default: discovery
+  type: enum
+  choices:
+    - discovery
+    - homepage
+    - all
+  description: discovery refers to topic list pages
+
+banner_links:
+  default: >-
+    [{"icon":"info-circle","text":"about this site","url":"/faq"},
+    {"icon":"users","text":"meet our staff","url":"/about"},
+    {"icon":"star","text":"your preferences","url":"/my/preferences"}]
+  json_schema: '{ "type": "array", "format": "table", "uniqueItems": true, "items": { "type": "object", "properties": { "icon": { "type": "string", "minLength": 1 }, "text": { "type": "string", "minLength": 1 }, "url": { "type": "string" } }, "additionalProperties": false } }'
+
+max_trust_level:
+  type: integer
+  default: 1
+  max: 5
+  description: Show for this trust level and below; set 5 for all
+
+hide_for_staff:
+  default: false
+
+hide_on_mobile:
+  default: false
+
+banner_background_image:
+  type: upload
+  default: ""
+
+banner_background_repeat:
+  type: enum
+  default: no-repeat
+  choices:
+    - no-repeat
+    - repeat
+    - repeat-x
+    - repeat-y
+
+banner_background_size:
+  type: string
+  default: cover
+
+banner_background_color:
+  type: string
+  default: "var(--tertiary-low)"
+
+svg_icons:
+  default: "user-group"
+  type: "list"
+  list_type: "compact"
