@@ -12,7 +12,10 @@ export default Component.extend({
 
   @discourseComputed("currentUser")
   showTrust(currentUser) {
-    return currentUser && currentUser.trust_level <= settings.max_trust_level;
+    return (
+      (currentUser && currentUser.trust_level <= settings.max_trust_level) ||
+      (!currentUser && !settings.hide_for_anon)
+    );
   },
 
   @discourseComputed("currentUser")

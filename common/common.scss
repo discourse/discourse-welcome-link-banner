@@ -19,10 +19,9 @@
     justify-content: center;
     box-shadow: shadow("card");
     margin: 2.5em auto;
-    background: var(--secondary);
+    background: #{$banner-box-background-color};
 
     .featured-banner-link {
-      background: var(--secondary);
       display: flex;
       justify-content: space-between;
       padding: 1em;
@@ -48,20 +47,20 @@
           transition: all 0.25s;
           width: 100%;
           padding: 1.5em;
-          color: var(--primary);
+          color: #{$banner-text-color};
           display: flex;
           justify-content: center;
 
           .d-icon {
-            color: var(--primary-high);
+            color: #{$banner-icon-color};
             margin-bottom: 0.35em;
           }
 
           &:hover {
-            color: var(--tertiary);
+            color: #{$banner-link-color};
             text-decoration: underline;
             .d-icon {
-              color: var(--tertiary);
+              color: #{$banner-link-color};
             }
           }
         }
@@ -81,7 +80,6 @@
     }
 
     .welcome-content {
-      background: var(--secondary);
       max-width: 375px;
       text-align: left;
       padding: 2.5em 2em 3em;

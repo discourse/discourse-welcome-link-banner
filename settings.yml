@@ -26,6 +26,10 @@ hide_for_staff:
 hide_on_mobile:
   default: false
 
+hide_for_anon:
+  default: false
+  description: hide the banner for logged-out users
+
 banner_background_image:
   type: upload
   default: ""
@@ -42,10 +46,27 @@ banner_background_repeat:
 banner_background_size:
   type: string
   default: cover
+  description: uses <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">CSS background size property</a>
 
 banner_background_color:
   type: string
   default: "var(--tertiary-low)"
+
+banner_box_background_color:
+  type: string
+  default: "var(--secondary)"
+
+banner_text_color:
+  type: string
+  default: "var(--primary)"
+
+banner_icon_color:
+  type: string
+  default: "var(--primary-high)"
+
+banner_link_color:
+  type: string
+  default: "var(--tertiary)"
 
 svg_icons:
   default: "user-group"
