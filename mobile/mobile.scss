@@ -1,7 +1,7 @@
 // Makes the welcome banner adapted to small screen sizes
 .below-site-header-outlet.welcome-link-banner-connector {
     .welcome-link-banner-wrapper {
-        background-image: url($mobile-banner-bg);
+        background-image: url(#{$mobile-banner-background-image});
         background-size: cover;
         .welcome-wrapper {
             .featured-banner-link {
