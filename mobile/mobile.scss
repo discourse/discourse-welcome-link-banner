@@ -1,0 +1,20 @@
+// Makes the welcome banner adapted to small screen sizes
+.below-site-header-outlet.welcome-link-banner-connector {
+    .welcome-link-banner-wrapper {
+        background-image: url($mobile-banner-bg);
+        background-size: cover;
+        .welcome-wrapper {
+            .featured-banner-link {
+                flex-direction: row;
+                padding-bottom: 0.5em;
+                &>div a {
+                    padding: 0 5px;
+                    h3 {
+                        font-size: 0.75em;
+                        white-space: normal;
+                    }
+                }
+            }
+        }
+    }
+}
