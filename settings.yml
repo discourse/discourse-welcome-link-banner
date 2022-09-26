@@ -34,6 +34,10 @@ banner_background_image:
   type: upload
   default: ""
 
+mobile_banner_background_image:
+  type: upload
+  default: ""
+
 banner_background_repeat:
   type: enum
   default: no-repeat
