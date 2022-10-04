@@ -1,3 +1,21 @@
+.above-main-container-outlet.welcome-link-banner-connectors {
+  margin-bottom: 1em;
+}
+
+// 270px is the width of the sidebar + gap
+@mixin adjustableBreakpoint($original, $adjustment: 270px) {
+  @if $plugin-outlet = "above-main-container-outlet" {
+    @media screen and (max-width: ($original + $adjustment)) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $original) {
+      @content;
+    }
+  }
+}
+
+.above-main-container-outlet.welcome-link-banner-connectors,
 .below-site-header-outlet.welcome-link-banner-connector {
   .welcome-link-banner-wrapper {
     background-color: #{$banner-background-color};
@@ -13,7 +31,6 @@
 
   .welcome-wrapper {
     flex: 0 1 auto;
-    margin-top: 2em;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -89,7 +106,7 @@
       }
     }
 
-    @media screen and (max-width: 930px) {
+    @include adjustableBreakpoint(930px) {
       flex-wrap: wrap;
 
       p {
@@ -108,11 +125,11 @@
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @include adjustableBreakpoint(600px) {
       padding: 2em;
     }
 
-    @media screen and (max-width: 550px) {
+    @include adjustableBreakpoint(550px) {
       max-width: 80vw;
       padding: 0;
 

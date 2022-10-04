@@ -76,3 +76,11 @@ svg_icons:
   default: "user-group"
   type: "list"
   list_type: "compact"
+
+plugin_outlet:
+  default: "below-site-header"
+  type: "enum"
+  choices:
+    - "below-site-header"
+    - "above-main-container"
+  description: changes the banner position, use "above-main-container" if you have the sidebar enabled
