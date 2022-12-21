@@ -1,7 +1,3 @@
-.above-main-container-outlet.welcome-link-banner-connectors {
-  margin-bottom: 1em;
-}
-
 // 270px is the width of the sidebar + gap
 @mixin adjustableBreakpoint($original, $adjustment: 270px) {
   @if $plugin-outlet = "above-main-container-outlet" {
@@ -23,6 +19,7 @@
     background-size: #{$banner-background-size};
     background-repeat: #{$banner-background-repeat};
     background-position: center center;
+    margin-bottom: 1em;
   }
 
   .welcome-link-banner {
