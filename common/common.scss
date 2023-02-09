@@ -80,10 +80,6 @@
           display: flex;
           justify-content: center;
 
-          @if $layout == "text-left" {
-            white-space: nowrap;
-          }
-
           .d-icon {
             color: #{$banner-icon-color};
             margin-bottom: 0.35em;
