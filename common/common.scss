@@ -27,6 +27,7 @@
   }
 
   .welcome-wrapper {
+    width: 95%;
     flex: 0 1 auto;
     box-sizing: border-box;
     display: flex;
@@ -35,10 +36,23 @@
     margin: 2.5em auto;
     background: #{$banner-box-background-color};
 
+    @if $layout == "text-top" {
+      flex-direction: column;
+    }
+
     .featured-banner-link {
-      display: flex;
-      justify-content: space-between;
-      padding: 1em;
+      box-sizing: border-box;
+      padding: 1em 1em 0.75em;
+
+      @if $layout == "text-top" {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding-top: 0;
+      } @else {
+        display: flex;
+        flex: 1 0 50%;
+        min-width: 0;
+      }
 
       svg {
         transition: color 0.25s;
@@ -50,6 +64,7 @@
         justify-content: center;
         text-align: center;
         width: 100%;
+        min-width: 0;
 
         svg {
           display: block;
@@ -60,10 +75,14 @@
         a {
           transition: all 0.25s;
           width: 100%;
-          padding: 1.5em;
+          padding: 1em 1em 1.25em;
           color: #{$banner-text-color};
           display: flex;
           justify-content: center;
+
+          @if $layout == "text-left" {
+            white-space: nowrap;
+          }
 
           .d-icon {
             color: #{$banner-icon-color};
@@ -81,9 +100,20 @@
 
         h3 {
           font-weight: normal;
-          white-space: nowrap;
           line-height: 1.2;
           margin: 0;
+          min-width: 0;
+          font-size: var(--font-up-1);
+        }
+      }
+
+      @include adjustableBreakpoint(700px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        > div {
+          width: auto;
         }
       }
     }
@@ -96,7 +126,21 @@
     .welcome-content {
       max-width: 375px;
       text-align: left;
-      padding: 2.5em 2em 3em;
+      padding: 1.5em 2em 2em;
+      @if $layout == "text-top" {
+        text-align: center;
+        padding-bottom: 0.25em;
+        max-width: unset;
+        p {
+          margin-top: 0.5em;
+        }
+      } @else {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 400px;
+        flex: 1 1 50%;
+      }
 
       p {
         margin-bottom: 0;
@@ -106,24 +150,15 @@
     @include adjustableBreakpoint(930px) {
       flex-wrap: wrap;
 
-      p {
-        max-width: 500px;
-      }
-
       .welcome-content {
         max-width: unset;
         text-align: center;
-        padding-bottom: 1em;
+        padding: 1.33em 1em 0;
       }
 
       .featured-banner-link {
-        padding: 0 0 2em;
         width: 100%;
       }
-    }
-
-    @include adjustableBreakpoint(600px) {
-      padding: 2em;
     }
 
     @include adjustableBreakpoint(550px) {

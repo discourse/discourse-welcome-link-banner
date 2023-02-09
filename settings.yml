@@ -77,6 +77,13 @@ svg_icons:
   type: "list"
   list_type: "compact"
 
+layout:
+  default: "text-left"
+  type: "enum"
+  choices:
+    - "text-left"
+    - "text-top"
+
 plugin_outlet:
   default: "below-site-header"
   type: "enum"
