@@ -1,6 +1,6 @@
 // 270px is the width of the sidebar + gap
 @mixin adjustableBreakpoint($original, $adjustment: 270px) {
-  @if $plugin-outlet = "above-main-container-outlet" {
+  @if $plugin-outlet == "above-main-container-outlet" {
     @media screen and (max-width: ($original + $adjustment)) {
       @content;
     }
