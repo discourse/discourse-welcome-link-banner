@@ -10,7 +10,7 @@ show_on:
 banner_links:
   default: >-
     [{"icon":"info-circle","text":"about this site","url":"/faq"},
-    {"icon":"users","text":"meet our staff","url":"/about"},
+    {"icon":"user-friends","text":"meet our staff","url":"/about"},
     {"icon":"star","text":"your preferences","url":"/my/preferences"}]
   json_schema: '{ "type": "array", "format": "table", "uniqueItems": true, "items": { "type": "object", "properties": { "icon": { "type": "string", "minLength": 1 }, "text": { "type": "string", "minLength": 1 }, "url": { "type": "string" } }, "additionalProperties": false } }'
 
@@ -73,9 +73,16 @@ banner_link_color:
   default: "var(--tertiary)"
 
 svg_icons:
-  default: "user-group"
+  default: "user-friends"
   type: "list"
   list_type: "compact"
+
+layout:
+  default: "text-left"
+  type: "enum"
+  choices:
+    - "text-left"
+    - "text-top"
 
 plugin_outlet:
   default: "below-site-header"
