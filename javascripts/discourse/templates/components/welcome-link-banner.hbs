@@ -1,4 +1,3 @@
-
 {{#unless hideStaff}}
   {{#unless (and (theme-setting 'hide_on_mobile') site.mobileView)}}
     {{#if (and showTrust showHere)}}
@@ -12,7 +11,7 @@
             <div class="featured-banner-link">
               {{#each bannerLinks as |bl|}}
                 <div>
-                  <a href="{{bl.url}}">
+                  <a href="{{bl.url}}" target={{if (is-external-link bl.url currentUser=this.currentUser) '_blank'}}>
                     <h3>
                       {{d-icon bl.icon}}
                       {{bl.text}}
@@ -27,5 +26,3 @@
     {{/if}}
   {{/unless}}
 {{/unless}}
-
-
