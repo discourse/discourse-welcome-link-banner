@@ -41,7 +41,7 @@ export default class WelcomeLinkBanner extends Component {
   }
 
   get isMobileView() {
-    return settings.hide_on_mobile && this.site?.mobileView;
+    return settings.hide_on_mobile && this.site.mobileView;
   }
 
   get shouldShow() {
