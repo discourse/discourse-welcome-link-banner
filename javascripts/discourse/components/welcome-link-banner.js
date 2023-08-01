@@ -36,7 +36,7 @@ export default class WelcomeLinkBanner extends Component {
     }
 
     if (settings.show_on === "homepage") {
-      return this.router.currentRouteName == `discovery.${defaultHomepage()}`;
+      return this.router.currentRouteName === `discovery.${defaultHomepage()}`;
     }
   }
 
