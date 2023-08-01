@@ -6,7 +6,7 @@ import {
 import { test } from "qunit";
 import { click, visit } from "@ember/test-helpers";
 
-acceptance("Welcome Link Banner - Logged out", function (needs) {
+acceptance("Welcome Link Banner - Logged out", function () {
   test("banner can be hidden from anons", async function (assert) {
     settings.hide_for_anon = true;
     await visit("/latest");
