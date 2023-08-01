@@ -1,6 +1,5 @@
 import {
   acceptance,
-  exists,
   updateCurrentUser,
 } from "discourse/tests/helpers/qunit-helpers";
 import { test } from "qunit";
@@ -38,10 +37,9 @@ acceptance("Welcome Link Banner - Logged in", function (needs) {
     settings.hide_for_staff = true;
     await visit("/latest");
 
-    assert.ok(
-      !exists(".welcome-link-banner-wrapper"),
-      "hides the banner for staff"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .doesNotExist("hides the banner for staff");
   });
 
   test("banner can be hidden by trust level", async function (assert) {
@@ -53,10 +51,9 @@ acceptance("Welcome Link Banner - Logged in", function (needs) {
 
     await visit("/latest");
 
-    assert.ok(
-      !exists(".welcome-link-banner-wrapper"),
-      "hides the banner by trust level"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .doesNotExist("hides the banner by trust level");
   });
 
   test("banner can be shown by route", async function (assert) {
@@ -64,17 +61,15 @@ acceptance("Welcome Link Banner - Logged in", function (needs) {
 
     await visit("/");
 
-    assert.ok(
-      exists(".welcome-link-banner-wrapper"),
-      "shows the banner by route"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .exists("shows the banner by route");
 
     await visit("/top");
 
-    assert.ok(
-      !exists(".welcome-link-banner-wrapper"),
-      "hides the banner by route"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .doesNotExist("hides the banner by route");
   });
 
   test("banner can be shown by trust level", async function (assert) {
@@ -86,20 +81,18 @@ acceptance("Welcome Link Banner - Logged in", function (needs) {
 
     await visit("/latest");
 
-    assert.ok(
-      exists(".welcome-link-banner-wrapper"),
-      "shows the banner by trust level"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .exists("shows the banner by trust level");
   });
 
   test("banner can be hidden on mobile", async function (assert) {
     needs.mobileView();
     settings.hide_on_mobile = true;
 
-    assert.ok(
-      !exists(".welcome-link-banner-wrapper"),
-      "hides the banner on mobile"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .doesNotExist("hides the banner on mobile");
   });
 
   test("banner can be dismissed", async function (assert) {
@@ -107,16 +100,14 @@ acceptance("Welcome Link Banner - Logged in", function (needs) {
 
     await visit("/latest");
 
-    assert.ok(
-      exists(".welcome-link-banner-wrapper .welcome-link-banner-close"),
-      "shows the close button"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper .welcome-link-banner-close")
+      .exists("shows the close button");
 
     await click(".welcome-link-banner-wrapper .welcome-link-banner-close");
 
-    assert.ok(
-      !exists(".welcome-link-banner-wrapper"),
-      "clicking the close button hides the banner"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .doesNotExist("clicking the close button hides the banner");
   });
 });
