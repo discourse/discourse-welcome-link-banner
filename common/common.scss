@@ -27,6 +27,7 @@
   }
 
   .welcome-wrapper {
+    position: relative;
     width: 95%;
     flex: 0 1 auto;
     box-sizing: border-box;
@@ -167,6 +168,23 @@
 
         > div {
           margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .welcome-link-banner-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: start;
+    .d-icon {
+      color: var(--primary-medium);
+    }
+    .discourse-no-touch & {
+      &:hover {
+        .d-icon {
+          color: var(--primary);
         }
       }
     }

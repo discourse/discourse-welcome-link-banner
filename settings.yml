@@ -30,6 +30,10 @@ hide_for_anon:
   default: false
   description: hide the banner for logged-out users
 
+can_be_dismissed:
+  default: true
+  description: allow users to dismiss the banner (per device)
+
 banner_background_image:
   type: upload
   default: ""
