@@ -10,7 +10,7 @@
           <div class="featured-banner-link">
             {{#each bannerLinks as |bl|}}
               <div>
-                <a href="{{bl.url}}" target={{if (is-external-link bl.url currentUser=this.currentUser) '_blank'}}>
+                <a href={{bl.url}} target={{if (is-external-link bl.url currentUser=this.currentUser) "_blank"}}>
                   <h3>
                     {{d-icon bl.icon}}
                     {{bl.text}}
@@ -19,7 +19,7 @@
               </div>
             {{/each}}
           </div>
-          {{#if (theme-setting 'can_be_dismissed')}}
+          {{#if (theme-setting "can_be_dismissed")}}
             <DButton
               @class="btn-flat welcome-link-banner-close"
               @icon="times"
@@ -29,5 +29,5 @@
         </div>
       </div>
     </div>
-   {{/if}}
+  {{/if}}
 {{/unless}}
