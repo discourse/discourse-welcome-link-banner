@@ -10,7 +10,7 @@ export default class WelcomeLinkBanner extends Component {
   @service site;
 
   @tracked bannerLinks = JSON.parse(settings.banner_links);
-  @tracked dismissedBanner = settings.can_be_dismissed
+  @tracked dismissed = settings.can_be_dismissed
     ? localStorage.getItem("discourse_dismissedWelcomeLinkBanner")
     : false;
 
@@ -46,16 +46,20 @@ export default class WelcomeLinkBanner extends Component {
 
   get shouldShow() {
     return (
-      !this.hideStaff && !this.isMobileView && this.showTrust && this.showHere
+      !this.dismissed &&
+      !this.hideStaff &&
+      !this.isMobileView &&
+      this.showTrust &&
+      this.showHere
     );
   }
 
   @action
-  dismissWelcomeLinkBanner() {
+  dismiss() {
     if (!settings.can_be_dismissed) {
       return;
     }
-    this.dismissedBanner = true;
+    this.dismissed = true;
     return localStorage.setItem("discourse_dismissedWelcomeLinkBanner", true);
   }
 }
