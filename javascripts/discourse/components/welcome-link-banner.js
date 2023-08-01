@@ -7,6 +7,8 @@ import { tracked } from "@glimmer/tracking";
 export default class WelcomeLinkBanner extends Component {
   @service router;
   @service currentUser;
+  @service site;
+
   @tracked bannerLinks = JSON.parse(settings.banner_links);
   @tracked dismissedBanner = settings.can_be_dismissed
     ? localStorage.getItem("discourse_dismissedWelcomeLinkBanner")
