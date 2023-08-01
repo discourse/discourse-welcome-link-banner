@@ -1,40 +1,61 @@
 import Component from "@ember/component";
-import discourseComputed from "discourse-common/utils/decorators";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
 import { defaultHomepage } from "discourse/lib/utilities";
-export default Component.extend({
-  router: service(),
+import { tracked } from "@glimmer/tracking";
 
-  bannerLinks: computed(function () {
-    return JSON.parse(settings.banner_links);
-  }),
+export default class WelcomeLinkBanner extends Component {
+  @service router;
+  @service currentUser;
+  @tracked bannerLinks = JSON.parse(settings.banner_links);
+  @tracked dismissedBanner = settings.can_be_dismissed
+    ? localStorage.getItem("discourse_dismissedWelcomeLinkBanner")
+    : false;
 
-  @discourseComputed("currentUser")
-  showTrust(currentUser) {
+  get showTrust() {
     return (
-      (currentUser && currentUser.trust_level <= settings.max_trust_level) ||
-      (!currentUser && !settings.hide_for_anon)
+      (this.currentUser &&
+        this.currentUser.trust_level <= settings.max_trust_level) ||
+      (!this.currentUser && !settings.hide_for_anon)
     );
-  },
+  }
 
-  @discourseComputed("currentUser")
-  hideStaff(currentUser) {
-    return currentUser && currentUser.staff && settings.hide_for_staff;
-  },
+  get hideStaff() {
+    return (
+      this.currentUser && this.currentUser.staff && settings.hide_for_staff
+    );
+  }
 
-  @discourseComputed("router.currentRouteName", "router.currentURL")
-  showHere(currentRouteName, currentURL) {
+  get showHere() {
     if (settings.show_on === "all") {
       return true;
     }
 
     if (settings.show_on === "discovery") {
-      return currentRouteName.indexOf("discovery") > -1;
+      return this.router.currentRouteName.indexOf("discovery") > -1;
     }
 
     if (settings.show_on === "homepage") {
-      return currentRouteName == `discovery.${defaultHomepage()}`;
+      return this.router.currentRouteName == `discovery.${defaultHomepage()}`;
     }
-  },
-});
+  }
+
+  get isMobileView() {
+    return settings.hide_on_mobile && this.site?.mobileView;
+  }
+
+  get shouldShow() {
+    return (
+      !this.hideStaff && !this.isMobileView && this.showTrust && this.showHere
+    );
+  }
+
+  @action
+  dismissWelcomeLinkBanner() {
+    if (!settings.can_be_dismissed) {
+      return;
+    }
+    this.dismissedBanner = true;
+    return localStorage.setItem("discourse_dismissedWelcomeLinkBanner", true);
+  }
+}
