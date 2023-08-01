@@ -20,10 +20,9 @@ acceptance("Welcome Link Banner - Logged out", function () {
     settings.hide_for_anon = false;
     await visit("/latest");
 
-    assert.ok(
-      exists(".welcome-link-banner-wrapper"),
-      "hides the banner for anons"
-    );
+    assert
+      .dom(".welcome-link-banner-wrapper")
+      .exists("hides the banner for anons");
   });
 });
 
