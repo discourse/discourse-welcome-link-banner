@@ -1,9 +1,9 @@
+import { click, visit } from "@ember/test-helpers";
+import { test } from "qunit";
 import {
   acceptance,
   updateCurrentUser,
 } from "discourse/tests/helpers/qunit-helpers";
-import { test } from "qunit";
-import { click, visit } from "@ember/test-helpers";
 
 acceptance("Welcome Link Banner - Logged out", function () {
   test("banner can be hidden from anons", async function (assert) {
