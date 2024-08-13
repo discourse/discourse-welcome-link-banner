@@ -5,3 +5,6 @@
 # https://translate.discourse.org/
 
 fr:
+  meta_banner:
+    welcome: Bienvenue dans notre communauté !
+    subtitle: Rejoignez la conversation et n'oubliez pas de faire preuve de bienveillance.
