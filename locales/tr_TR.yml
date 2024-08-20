@@ -5,3 +5,6 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  meta_banner:
+    welcome: Topluluğumuza hoş geldiniz!
+    subtitle: Konuşmaya katılın ve nazik olmayı unutmayın.

@@ -5,3 +5,6 @@
 # https://translate.discourse.org/
 
 pt_BR:
+  meta_banner:
+    welcome: Boas-vindas à nossa comunidade!
+    subtitle: 'Entre na conversa e não se esqueça: gentileza em primeiro lugar.'
