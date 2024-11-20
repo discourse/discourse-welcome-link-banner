@@ -7,7 +7,7 @@
           <p>{{html-safe (theme-i18n "meta_banner.subtitle")}}</p>
         </div>
         <div class="featured-banner-link">
-          {{#each bannerLinks as |bl|}}
+          {{#each this.bannerLinks as |bl|}}
             <div>
               <a
                 href={{bl.url}}
