@@ -8,11 +8,40 @@ show_on:
   description: discovery refers to topic list pages
 
 banner_links:
-  default: >-
-    [{"icon":"info-circle","text":"about this site","url":"/faq"},
-    {"icon":"user-friends","text":"meet our staff","url":"/about"},
-    {"icon":"star","text":"your preferences","url":"/my/preferences"}]
-  json_schema: '{ "type": "array", "format": "table", "uniqueItems": true, "items": { "type": "object", "properties": { "icon": { "type": "string", "minLength": 1 }, "text": { "type": "string", "minLength": 1 }, "url": { "type": "string" } }, "additionalProperties": false } }'
+  type: objects
+  default:
+    - icon: circle-info
+      text: about this site
+      url: /faq
+    - icon: user-group
+      text: meet our staff
+      url: /about
+    - icon: star
+      text: your preferences
+      url: /my/preferences
+  schema:
+    name: banner link
+    identifier: text
+    properties:
+      icon:
+        type: string
+        required: true
+        validations:
+          min_length: 1
+          max_length: 200
+      text:
+        type: string
+        required: true
+        validations:
+          min_length: 1
+          max_length: 1000
+      url:
+        type: string
+        required: true
+        validations:
+          min_length: 1
+          max_length: 2048
+          url: true
 
 max_trust_level:
   type: integer
@@ -77,7 +106,7 @@ banner_link_color:
   default: "var(--tertiary)"
 
 svg_icons:
-  default: "user-friends"
+  default: "user-group"
   type: "list"
   list_type: "compact"
 
