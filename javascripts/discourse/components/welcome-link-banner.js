@@ -9,7 +9,7 @@ export default class WelcomeLinkBanner extends Component {
   @service currentUser;
   @service site;
 
-  @tracked bannerLinks = JSON.parse(settings.banner_links);
+  @tracked bannerLinks = settings.banner_links;
   @tracked
   dismissed = settings.can_be_dismissed
     ? localStorage.getItem("discourse_dismissedWelcomeLinkBanner")

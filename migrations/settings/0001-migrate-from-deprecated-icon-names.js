@@ -7,6 +7,7 @@ export default function migrate(settings, helpers) {
         text: link.text.substring(0, 1000),
         url: link.url,
       };
+      console.log(newLink.url)
       if (
         !newLink.url ||
         !helpers.isValidUrl(newLink.url) ||
