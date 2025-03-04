@@ -1,10 +1,4 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-pt_BR:
+pt:
   meta_banner:
     welcome: Boas-vindas à nossa comunidade!
     subtitle: 'Entre na conversa e não se esqueça: gentileza em primeiro lugar.'
