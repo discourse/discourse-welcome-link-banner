@@ -89,6 +89,7 @@
           &:hover {
             color: #{$banner-link-color};
             text-decoration: underline;
+
             .d-icon {
               color: #{$banner-link-color};
             }
@@ -124,10 +125,12 @@
       max-width: 375px;
       text-align: left;
       padding: 1.5em 2em 2em;
+
       @if $layout == "text-top" {
         text-align: center;
         padding-bottom: 0.25em;
         max-width: unset;
+
         p {
           margin-top: 0.5em;
         }
@@ -178,9 +181,11 @@
     right: 0;
     top: 0;
     align-self: start;
+
     .d-icon {
       color: var(--primary-medium);
     }
+
     .discourse-no-touch & {
       &:hover {
         .d-icon {
