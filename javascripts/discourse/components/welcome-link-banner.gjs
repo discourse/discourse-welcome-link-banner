@@ -20,7 +20,6 @@ export default class WelcomeLinkBanner extends Component {
   @service currentUser;
   @service site;
 
-  @tracked bannerLinks = settings.banner_links;
   @tracked
   dismissed = settings.can_be_dismissed
     ? localStorage.getItem("discourse_dismissedWelcomeLinkBanner")
@@ -85,7 +84,7 @@ export default class WelcomeLinkBanner extends Component {
               <p>{{htmlSafe (i18n (themePrefix "meta_banner.subtitle"))}}</p>
             </div>
             <div class="featured-banner-link">
-              {{#each this.bannerLinks as |bl|}}
+              {{#each settings.banner_links as |bl|}}
                 <div>
                   <a
                     href={{bl.url}}
